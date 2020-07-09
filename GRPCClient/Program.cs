@@ -17,6 +17,7 @@ namespace GRPCClient
         {
             // Using sample test credentials from https://github.com/grpc/grpc/tree/master/src/core/tsi/test_creds
             string rootDir = $"{Directory.GetCurrentDirectory()}/../.."; 
+            // Note: these ideally shouldn't be text files, but it's fine for testing purposes. I copied the creds from the link above. 
             var keyCertPair = new KeyCertificatePair(File.ReadAllText($"{rootDir}/samplecert.pem.txt"), File.ReadAllText($"{rootDir}/samplecert.key.txt")); 
             var channelCreds = new SslCredentials(GetRootCertificates(), keyCertPair);
             
